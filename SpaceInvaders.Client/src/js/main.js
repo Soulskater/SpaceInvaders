@@ -3,7 +3,7 @@
  */
 var Game = Game || {};
 Game.Init = (function ($, $connection) {
-    $connection.onHealthCheck(function (status) {
+    /*$connection.onHealthCheck(function (status) {
         console.log("Server response: "+ status);
-    });
+    });*/
 }($, Game.Connection))
