@@ -1,10 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvaders.Server", "SpaceInvaders.Server\SpaceInvaders.Server.csproj", "{A5B2CA96-9C62-4DF1-9FCB-41A031E36A66}"
-EndProject
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{8F89C052-5EAC-43B2-908A-7AC4F1DFDDAA}"
 	ProjectSection(SolutionItems) = preProject
 		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
@@ -16,16 +12,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 		PublishScripts\Configurations\SpaceInvadersServer-WAWS-dev.json = PublishScripts\Configurations\SpaceInvadersServer-WAWS-dev.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceInvaders.Api", "SpaceInvaders.Api\SpaceInvaders.Api.csproj", "{3A559BAB-0759-45D1-908C-C8C8091D1FFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5B2CA96-9C62-4DF1-9FCB-41A031E36A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5B2CA96-9C62-4DF1-9FCB-41A031E36A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5B2CA96-9C62-4DF1-9FCB-41A031E36A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5B2CA96-9C62-4DF1-9FCB-41A031E36A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A559BAB-0759-45D1-908C-C8C8091D1FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A559BAB-0759-45D1-908C-C8C8091D1FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A559BAB-0759-45D1-908C-C8C8091D1FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A559BAB-0759-45D1-908C-C8C8091D1FFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

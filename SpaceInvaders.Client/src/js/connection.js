@@ -3,25 +3,12 @@
  */
 var Game = Game || {};
 Game.Connection = (function ($) {
-    var serverUrl = "http://localhost/GameServer/signalr";
-    var connection = $.connection; //$.hubConnection(serverUrl, {userDefaultPath: false});
-    var gameHubProxy = $.connection.gameHub;//connection.createHubProxy("gameHub");
-
-    gameHubProxy.client.healthStatus = function (status) {
-        console.log(status);
-    };
-
-    connection.hub.start();
+    var serverUrl = "http://localhost:90/SpaceInvaders.Api/signalr";
 
     return {
-        onHealthCheck: function (handler) {
-            gameHubProxy.on('healthCheck', handler);
-        },
-        healthCheck: function () {
-            gameHubProxy.server.healthCheck();
+        getConnection: function () {
+           return $.hubConnection(serverUrl, {userDefaultPath: false});
         }
     }
-
-
 }(jQuery));
 

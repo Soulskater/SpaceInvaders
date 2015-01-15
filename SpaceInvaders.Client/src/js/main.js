@@ -2,8 +2,8 @@
  * Created by gmeszaros on 1/14/2015.
  */
 var Game = Game || {};
-Game.Init = (function ($, $connection) {
-    /*$connection.onHealthCheck(function (status) {
-        console.log("Server response: "+ status);
-    });*/
-}($, Game.Connection))
+Game.Init = (function ($, hubs) {
+    hubs.gamePlayHub.onUpdateSpaceShip(function (spaceShip) {
+        console.log("Spaceship position: {x:" + spaceShip.x + ", y:" + spaceShip.y + "}");
+    });
+}($, Game.Hubs))
