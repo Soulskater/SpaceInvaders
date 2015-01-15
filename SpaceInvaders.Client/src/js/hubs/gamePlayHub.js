@@ -2,7 +2,6 @@
  * Created by gmeszaros on 1/15/2015.
  */
 var gamePlayHub = function (connection) {
-
     var hub = connection.createHubProxy("gamePlayHub");
 
     return{
@@ -10,7 +9,7 @@ var gamePlayHub = function (connection) {
             hub.on('updateSpaceShip', handler);
         },
         updateSpaceShip: function (spaceShip) {
-            connection.start().done(function () {
+            Game.Connection.safeInvoke(function () {
                 hub.invoke("updateSpaceShip", spaceShip);
             });
         }

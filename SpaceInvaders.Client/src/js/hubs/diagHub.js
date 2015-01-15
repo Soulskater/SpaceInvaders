@@ -10,7 +10,7 @@ var diagHub = function (connection) {
             hub.on('healthCheck', handler);
         },
         healthCheck: function () {
-            connection.start().done(function () {
+            Game.Connection.safeInvoke(function () {
                 hub.invoke("healthCheck");
             });
         }

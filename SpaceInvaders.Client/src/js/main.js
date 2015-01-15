@@ -3,7 +3,7 @@
  */
 var Game = Game || {};
 Game.Init = (function ($, hubs) {
-    hubs.gamePlayHub.onUpdateSpaceShip(function (spaceShip) {
-        console.log("Spaceship position: {x:" + spaceShip.x + ", y:" + spaceShip.y + "}");
+    hubs.chatHub.onReceiveMessage(function (message) {
+        console.log(message);
     });
 }($, Game.Hubs))
