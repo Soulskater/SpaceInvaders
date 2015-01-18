@@ -1,0 +1,67 @@
+.view-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media (max-height: 600px) {
+  .view-container {
+    bottom: 42px;
+  }
+}
+.view-animation.ng-enter,
+.view-animation.ng-leave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.view-animation.ng-enter {
+  -webkit-animation: 0.5s view-animation-enter;
+  animation: 0.5s view-animation-enter;
+}
+.view-animation.ng-leave {
+  -webkit-animation: 0.5s view-animation-leave;
+  animation: 0.5s view-animation-leave;
+}
+@keyframes view-animation-enter {
+  from {
+    z-index: 100;
+    right: -4000px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes view-animation-leave {
+  from {
+    z-index: 101;
+    left: 0;
+  }
+  to {
+    left: -4000px;
+  }
+}
+@-webkit-keyframes view-animation-enter {
+  from {
+    z-index: 100;
+    right: -4000px;
+  }
+  to {
+    left: 0;
+  }
+}
+@-webkit-keyframes view-animation-leave {
+  from {
+    z-index: 101;
+    left: 0;
+  }
+  to {
+    left: -4000px;
+  }
+}
