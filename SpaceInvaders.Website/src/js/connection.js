@@ -11,8 +11,9 @@ Game.ConnectionState = {
 };
 
 Game.Connection = (function ($) {
-    var serverUrl = "http://spaceinvadersservice.azurewebsites.net/";
-    var _connection = $.hubConnection(serverUrl, {userDefaultPath: false});
+    //var _serverUrl = "http://spaceinvadersservice.azurewebsites.net/";
+    var _serverUrl = "http://localhost:90/SpaceInvaders.Api/";
+    var _connection = $.hubConnection(_serverUrl, {userDefaultPath: false});
 
     _connection.disconnected(function () {
         _connection.start();
@@ -21,6 +22,9 @@ Game.Connection = (function ($) {
 
     return {
         hubConnection: _connection,
+        getServerUrl: function () {
+          return _serverUrl;
+        },
         safeInvoke: function (handler) {
             if (_connection.state === Game.ConnectionState.connected)
                 handler();

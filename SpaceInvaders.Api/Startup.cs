@@ -3,6 +3,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
 using SpaceInvaders.Api;
+using SpaceInvaders.Api.Common;
 
 [assembly: OwinStartup(typeof(Startup))]
 namespace SpaceInvaders.Api
@@ -28,6 +29,7 @@ namespace SpaceInvaders.Api
                 // Run the SignalR pipeline. We're not using MapSignalR
                 // since this branch already runs under the "/signalr"
                 // path.
+                GlobalHost.HubPipeline.AddModule(new ErrorHandlingPipelineModule()); 
                 map.RunSignalR(hubConfiguration);
             });
         }

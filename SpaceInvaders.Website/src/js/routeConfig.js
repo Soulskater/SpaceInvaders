@@ -13,6 +13,10 @@ angular.module("SpaceInvaders")
                     templateUrl: "src/features/account/login.html",
                     controller: "LoginCtrl"
                 }).
+                when("/dashboard", {
+                    templateUrl: "src/features/dashboard/dashboard.html",
+                    controller: "DashboardCtrl"
+                }).
                 otherwise({
                     redirectTo: '/login'
                 });
