@@ -63,8 +63,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationInsights.config" />
+    <Content Include="packages\angular-route\angular-route.js" />
+    <Content Include="packages\angular-route\angular-route.min.js" />
+    <Content Include="packages\angular-route\index.js" />
+    <Content Include="packages\general-icons\fonts\general.svg" />
+    <Content Include="packages\general-icons\icons-reference.html" />
+    <Content Include="packages\general-icons\styles.css" />
     <Content Include="src\css\common.less" />
     <Content Include="src\css\site.colors.less" />
+    <Content Include="src\css\site.css" />
+    <Content Include="src\features\account\login.css" />
+    <Content Include="src\features\account\login.html" />
+    <Content Include="src\features\account\loginCtrl.js" />
+    <Content Include="src\features\chat\chat.html" />
     <Content Include="src\features\chat\chat.less" />
     <Content Include="packages\angular\.bower.json" />
     <Content Include="packages\angular\angular.min.js.gzip" />
@@ -83,7 +94,19 @@
     <Content Include="packages\signalr\LICENSE.md" />
     <Content Include="packages\signalr\README.md" />
     <Content Include="fonts\weblysleekuil.ttf" />
+    <Content Include="packages\angular-route\.bower.json" />
+    <Content Include="packages\angular-route\angular-route.min.js.map" />
+    <Content Include="packages\angular-route\bower.json" />
+    <Content Include="packages\angular-route\package.json" />
+    <Content Include="packages\angular-route\README.md" />
+    <Content Include="packages\general-icons\fonts\general.eot" />
+    <Content Include="packages\general-icons\fonts\general.ttf" />
+    <Content Include="packages\general-icons\fonts\general.woff" />
     <None Include="Properties\PublishProfiles\spaceinvaders.pubxml" />
+    <Content Include="src\features\account\login.less" />
+    <Content Include="src\features\dashboard\dashboard.less" />
+    <Content Include="src\features\userlist\userlist.less" />
+    <Content Include="src\css\site.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -189,9 +212,14 @@
     <Content Include="src\css\common.css" />
     <Content Include="src\css\site.colors.css" />
     <Content Include="src\features\chat\chat.css" />
-    <Content Include="src\features\chat\chat.tmpl.html" />
     <Content Include="src\features\chat\chatCtrl.js" />
     <Content Include="src\features\chat\chatService.js" />
+    <Content Include="src\features\dashboard\dashboard.css" />
+    <Content Include="src\features\dashboard\dashboard.html" />
+    <Content Include="src\features\dashboard\dashboardCtrl.js" />
+    <Content Include="src\features\userlist\userlist.css" />
+    <Content Include="src\features\userlist\userlist.html" />
+    <Content Include="src\features\userlist\userlistCtrl.js" />
     <Content Include="src\images\loading_128.GIF" />
     <Content Include="src\images\loading_16.GIF" />
     <Content Include="src\images\loading_24.GIF" />
@@ -199,6 +227,7 @@
     <Content Include="src\images\loading_80.GIF" />
     <Content Include="src\js\authService.js" />
     <Content Include="src\js\connection.js" />
+    <Content Include="src\js\eventmanager.js" />
     <Content Include="src\js\game.js" />
     <Content Include="src\js\hub.js" />
     <Content Include="src\js\hubs\authHub.js" />

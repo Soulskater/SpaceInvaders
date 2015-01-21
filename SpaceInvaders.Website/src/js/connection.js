@@ -11,8 +11,8 @@ Game.ConnectionState = {
 };
 
 Game.Connection = (function ($) {
-    //var _serverUrl = "http://spaceinvadersservice.azurewebsites.net/";
-    var _serverUrl = "http://localhost:90/SpaceInvaders.Api";
+    var _serverUrl = "http://spaceinvadersservice.azurewebsites.net/";
+    //var _serverUrl = "http://localhost:90/SpaceInvaders.Api";
     var _connection = $.hubConnection(_serverUrl, {userDefaultPath: false});
 
     return {
