@@ -1,0 +1,18 @@
+.users-box {
+  max-width: 315px;
+  min-width: 150px;
+  border: 1px solid #B6B6B6;
+  background: #E8E8E8;
+}
+.users-box .users-header {
+  border-bottom: 1px solid #c7c7c7;
+}
+.users-box .users-wrapper {
+  max-height: 280px;
+  margin-bottom: 5px;
+  padding: 5px;
+  overflow-y: auto;
+}
+.users-box .users-wrapper .user {
+  padding: 5px 10px;
+}

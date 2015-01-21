@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using SpaceInvaders.Api.Account;
+using SpaceInvaders.Api.Models;
 
 namespace SpaceInvaders.Api.Hubs
 {

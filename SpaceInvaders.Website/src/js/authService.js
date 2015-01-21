@@ -9,15 +9,26 @@ angular.module("SpaceInvaders")
         var _service = {
             connectUser: function (loginData) {
                 var deferred = $q.defer();
-
-                $http.post(Game.Connection.getServerUrl() + "api/account/ConnectUser", loginData).success(function (user) {
-                    authenticatedUser = user;
-                    deferred.resolve(user);
-                }).error(function (err, status) {
-                    authenticatedUser = null;
-                    deferred.reject(err);
-                });
+                Game.Hubs.authHub.connectUser(loginData);
+                deferred.resolve("");
+                /*.done(function (user) {
+                 authenticatedUser = user;
+                 deferred.resolve(user);
+                 });*/
                 return deferred.promise;
+            },
+            getUsers: function () {
+                var deferred = $q.defer();
+                Game.Hubs.authHub.getUsers()
+                    .done(function (users) {
+                        deferred.resolve(users);
+                    });
+                return deferred.promise;
+            },
+            onUserConnected: function (handler) {
+                Game.Hubs.authHub.onUserConnected(function (message) {
+                    handler(message);
+                });
             }
         };
 

@@ -5,8 +5,8 @@ var Game = Game || {};
 Game.Hubs = (function (connection) {
     var _connection = connection.hubConnection;
     return {
-        diagHub: diagHub(_connection),
-        gameHub: gameHub(_connection),
+        //diagHub: diagHub(_connection),
+        //gameHub: gameHub(_connection),
         chatHub: chatHub(_connection),
         authHub: authHub(_connection)
     }

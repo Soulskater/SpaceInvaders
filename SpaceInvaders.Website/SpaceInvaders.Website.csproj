@@ -192,13 +192,22 @@
     <Content Include="src\features\chat\chat.tmpl.html" />
     <Content Include="src\features\chat\chatCtrl.js" />
     <Content Include="src\features\chat\chatService.js" />
+    <Content Include="src\images\loading_128.GIF" />
+    <Content Include="src\images\loading_16.GIF" />
+    <Content Include="src\images\loading_24.GIF" />
+    <Content Include="src\images\loading_32.GIF" />
+    <Content Include="src\images\loading_80.GIF" />
+    <Content Include="src\js\authService.js" />
     <Content Include="src\js\connection.js" />
     <Content Include="src\js\game.js" />
     <Content Include="src\js\hub.js" />
+    <Content Include="src\js\hubs\authHub.js" />
     <Content Include="src\js\hubs\chatHub.js" />
     <Content Include="src\js\hubs\diagHub.js" />
-    <Content Include="src\js\hubs\gamePlayHub.js" />
+    <Content Include="src\js\hubs\gameHub.js" />
     <Content Include="src\js\mainCtrl.js" />
+    <Content Include="src\js\navigationService.js" />
+    <Content Include="src\js\routeConfig.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

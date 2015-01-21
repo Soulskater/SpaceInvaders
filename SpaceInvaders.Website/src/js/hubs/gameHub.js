@@ -4,7 +4,7 @@
 var gameHub = function (connection) {
     var hub = connection.createHubProxy("gameHub");
 
-    return{
+    return {
         onUpdateSpaceShip: function (handler) {
             hub.on('updateSpaceShip', handler);
         },
@@ -12,9 +12,6 @@ var gameHub = function (connection) {
             Game.Connection.safeInvoke(function () {
                 hub.invoke("updateSpaceShip", spaceShip);
             });
-        },
-        onUserConnected: function (handler) {
-            hub.on('onUserConnected', handler);
         }
     };
 };

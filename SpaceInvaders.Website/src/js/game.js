@@ -3,7 +3,7 @@
  */
 var Game = Game || {};
 Game.Init = (function ($, hubs) {
-    hubs.chatHub.onReceiveMessage(function (message) {
+    /*hubs.chatHub.onReceiveMessage(function (message) {
         console.log(message);
-    });
+    });*/
 }($, Game.Hubs))
