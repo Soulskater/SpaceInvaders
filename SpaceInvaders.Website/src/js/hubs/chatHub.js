@@ -17,10 +17,10 @@ var chatHub = function (connection) {
 
     return{
         onReceiveMessage: function (handler) {
-            manager.subscribe(events.onReceiveMessage, handler);
+            return manager.subscribe(events.onReceiveMessage, handler);
         },
         sendMessage: function (message) {
-            Game.Connection.safeInvoke(function () {
+            Game.Connection.safeInvoke().done(function () {
                 hub.invoke("sendMessage", message);
             });
         }

@@ -17,7 +17,7 @@ angular.module("SpaceInvaders")
                 $navigation.go('/dashboard');
             }).catch(function (err) {
                 $scope.authenticating = false;
-                $scope.message = err.error_description;
+                $scope.message = err.message;
             });
         };
     }]);

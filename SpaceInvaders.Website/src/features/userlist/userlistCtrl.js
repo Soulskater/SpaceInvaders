@@ -16,4 +16,10 @@ angular.module("SpaceInvaders")
                 $scope.users.push(user);
             })
         });
+
+        authService.onUserDisconnected(function (user) {
+            $scope.$apply(function () {
+                $scope.users.splice($scope.users.indexOf(user), 1);
+            })
+        });
     }]);

@@ -1,0 +1,15 @@
+.left-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 350px;
+}
+.left-bar .users-widget {
+  position: relative;
+  height: 49%;
+}
+.left-bar .chat-widget {
+  position: relative;
+  height: 49%;
+}

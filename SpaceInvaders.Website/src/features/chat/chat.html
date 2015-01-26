@@ -3,11 +3,11 @@
         Global Chat
     </div>
     <div class="messages-box">
-        <div class="message space s bottom" ng-repeat="message in messages">
-            {{message}}
+        <div class="message space s bottom font-s" ng-repeat="message in messages">
+            {{message.User.UserName}}: {{message.Message}}
         </div>
     </div>
-    <div class="text-space s all">
+    <div class="input-wrapper text-space s all">
         <input class="input-box" ng-keyup="$event.keyCode == 13 && sendMessage(message)" ng-model="message" placeholder="Write a message"/>
         <button class="btn-s light-blue-700 pull-right" ng-click="sendMessage(message)">Send</button>
     </div>

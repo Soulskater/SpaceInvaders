@@ -14,25 +14,60 @@ namespace SpaceInvaders.Api.Hubs
     {
         public User ConnectUser(User user)
         {
-            if (UserManagement.Users.ContainsKey(user.UserName))
+            User existingUser;
+            if (UserManagement.Users.TryGetValue(Context.ConnectionId, out existingUser))
             {
-                throw new HubException("A user with this name is already been connected!");
+                throw new HubException(String.Format("You already been connected as {0}!", existingUser.UserName));
+            }
+            else
+            {
+                if (UserManagement.Users.Any(u => u.Value.UserName == user.UserName))
+                {
+                    throw new HubException("A user with this name is already been connected!");
+                }
+                else
+                {
+                    user.ConnectionId = Context.ConnectionId;
+
+                    lock (UserManagement.Users)
+                    {
+                        UserManagement.Users.AddOrUpdate(Context.ConnectionId, user, (key, src) => { return user; });
+                    }
+                }
+            }
+            //
+            //Notify clients
+            Clients.AllExcept(Context.ConnectionId).onUserConnected(user);
+
+            return user;
+        }
+
+        public void DisconnectUser(User user)
+        {
+            if (!UserManagement.Users.ContainsKey(Context.ConnectionId))
+            {
+                throw new HubException("A user with this name is already been disconnected!");
             }
 
-            var newUser = new User()
-            {
-                UserName = user.UserName
-            };
-            UserManagement.Users.AddOrUpdate(user.UserName, newUser, (key, src) => { return newUser; });
+            UserManagement.Users.TryRemove(Context.ConnectionId, out user);
 
-            Clients.AllExcept(Context.ConnectionId).userConnected(newUser);
-
-            return newUser;
+            Clients.AllExcept(Context.ConnectionId).onUserDisconnected(user);
         }
 
         public User[] GetUsers()
         {
             return UserManagement.Users.Values.ToArray();
+        }
+
+        public override System.Threading.Tasks.Task OnDisconnected(bool stopCalled)
+        {
+            User user;
+            if (UserManagement.Users.TryRemove(Context.ConnectionId, out user))
+            {
+                Clients.AllExcept(Context.ConnectionId).onUserDisconnected(user);
+            }
+
+            return base.OnDisconnected(stopCalled);
         }
     }
 }

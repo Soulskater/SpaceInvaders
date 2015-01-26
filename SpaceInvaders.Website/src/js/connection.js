@@ -14,6 +14,17 @@ Game.Connection = (function ($) {
     var _serverUrl = "http://spaceinvadersservice.azurewebsites.net/";
     //var _serverUrl = "http://localhost:90/SpaceInvaders.Api";
     var _connection = $.hubConnection(_serverUrl, {userDefaultPath: false});
+    var manager = new EventManager();
+
+    _connection.enableLogging = true;
+
+    var events = {
+        onDisconnected: "onDisconnected"
+    };
+
+    _connection.disconnected(function () {
+        manager.trigger(events.onDisconnected);
+    });
 
     return {
         hubConnection: _connection,
@@ -32,6 +43,9 @@ Game.Connection = (function ($) {
         },
         getState: function () {
             return _connection.state;
+        },
+        onDisconnected: function (handler) {
+            return manager.subscribe(events.onDisconnected, handler);
         }
     }
 }(jQuery));

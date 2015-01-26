@@ -12,7 +12,17 @@ namespace SpaceInvaders.Api.Hubs
     {
         public void SendMessage(string message)
         {
-            Clients.AllExcept(Context.ConnectionId).receiveMessage(message);
+            User user;
+            if(!UserManagement.Users.TryGetValue(Context.ConnectionId, out user))
+            {
+                throw new HubException("Cannot find the user in the store!");
+            }
+
+            Clients.AllExcept(Context.ConnectionId).receiveMessage(
+                new ChatMessage() {
+                    Message = message,
+                    User = user
+            });
         }
     }
 }

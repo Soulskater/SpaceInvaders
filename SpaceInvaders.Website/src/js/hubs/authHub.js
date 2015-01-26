@@ -7,23 +7,38 @@ var authHub = function (connection) {
     var manager = new EventManager();
 
     var events = {
-        onUserConnected: "onUserConnected"
+        onUserConnected: "onUserConnected",
+        onUserDisconnected: "onUserDisconnected",
+        onDisconnected: "onDisconnected"
     };
 
     var _subscribeHubEvents = function () {
-        hub.on('userConnected', function (user) {
+        hub.on('onUserConnected', function (user) {
             manager.trigger(events.onUserConnected, user);
+        });
+
+        hub.on('onUserDisconnected', function (user) {
+            manager.trigger(events.onUserDisconnected, user);
         });
     };
     _subscribeHubEvents();
 
     return {
         connectUser: function (user) {
-            var promise = null;
+            var deferred = $.Deferred();
             Game.Connection.safeInvoke().done(function () {
-                promise = hub.invoke("connectUser", user);
+                hub.invoke("connectUser", user)
+                    .done(function (user) {
+                        deferred.resolve(user);
+                    })
+                    .fail(function (error) {
+                        deferred.reject(error);
+                    });
             });
-            return promise;
+            return deferred;
+        },
+        onDisconnected: function (handler) {
+            return manager.subscribe(events.onDisconnected, handler);
         },
         getUsers: function () {
             var deferred = $.Deferred();
@@ -35,7 +50,10 @@ var authHub = function (connection) {
             return deferred;
         },
         onUserConnected: function (handler) {
-            manager.subscribe(events.onUserConnected, handler);
+            return manager.subscribe(events.onUserConnected, handler);
+        },
+        onUserDisconnected: function (handler) {
+            return manager.subscribe(events.onUserDisconnected, handler);
         }
     };
 };

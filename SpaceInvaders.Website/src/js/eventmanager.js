@@ -8,6 +8,8 @@ var EventManager;
 }).prototype = {
     subscribe: function (type, method, scope, context) {
         var listeners, handlers, scope;
+        var self = this;
+
         function getGuid() {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
@@ -29,7 +31,9 @@ var EventManager;
             scope: scope,
             context: (context ? context : scope)
         });
-        return id;
+        return function () {
+            self.unSubscribe(type, id);
+        };
     },
     hasSubscribers: function (type) {
         return this.listeners && this.listeners[type] && this.listeners[type].length > 0;
@@ -57,8 +61,8 @@ var EventManager;
             handler = handlers[i];
             if ((typeof (context) !== "undefined" && context !== handler.context) || !handler) continue;
             if (handler.method.apply(
-                handler.scope, data
-            ) === false) {
+                    handler.scope, data
+                ) === false) {
                 return false;
             }
         }
