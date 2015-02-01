@@ -13,3 +13,12 @@
   position: relative;
   height: 49%;
 }
+#viewport {
+  position: relative;
+  border: 1px solid #414141;
+  margin: 20px;
+}
+#viewport canvas {
+  position: absolute;
+  background-color: transparent;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "DependencyInjection",
+  "homepage": "https://github.com/Soulskater/DependencyInjection",
+  "authors": [
+    "Soulskater <gmeszaros007@gmail.com>"
+  ],
+  "description": "Super lightweight object oriented javascript with dependency injection",
+  "keywords": [
+    "dependency",
+    "injection",
+    "oop",
+    "javascript",
+    "di",
+    "inheritance"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "packages",
+    "test",
+    "tests"
+  ],
+  "_release": "5638e15a3b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5638e15a3bcf37d77df1cb1e066df9fd6e88e7b0"
+  },
+  "_source": "git://github.com/Soulskater/DependencyInjection.git",
+  "_target": "*",
+  "_originalSource": "dependency-injection"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "EventDispatcher",
+  "version": "1.0.0",
+  "authors": [
+    "Soulskater <gmeszaros007@gmail.com>"
+  ],
+  "description": "Simple event dispatcher implementation",
+  "keywords": [
+    "event",
+    "dispatcher",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

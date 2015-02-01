@@ -66,9 +66,49 @@
     <Content Include="packages\angular-route\angular-route.js" />
     <Content Include="packages\angular-route\angular-route.min.js" />
     <Content Include="packages\angular-route\index.js" />
+    <Content Include="packages\canvas-render\dist\canvasRender.js" />
+    <Content Include="packages\canvas-render\dist\canvasRender.min.js" />
+    <Content Include="packages\canvas-render\gulpfile.js" />
+    <Content Include="packages\canvas-render\index.html" />
+    <Content Include="packages\canvas-render\src\js\lib\StackBlur.js" />
+    <Content Include="packages\canvas-render\src\js\linkedlist.js" />
+    <Content Include="packages\canvas-render\src\js\main.js" />
+    <Content Include="packages\canvas-render\src\js\modules\animation.js" />
+    <Content Include="packages\canvas-render\src\js\modules\filters.js" />
+    <Content Include="packages\canvas-render\src\js\modules\game\physics.js" />
+    <Content Include="packages\canvas-render\src\js\modules\game\polygonCollision.js" />
+    <Content Include="packages\canvas-render\src\js\modules\layer.js" />
+    <Content Include="packages\canvas-render\src\js\modules\object.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\arc.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\image.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\line.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\polygon.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\rectangle.js" />
+    <Content Include="packages\canvas-render\src\js\modules\shapes\sprite.js" />
+    <Content Include="packages\canvas-render\src\js\modules\space.js" />
+    <Content Include="packages\canvas-render\src\js\modules\stage.js" />
+    <Content Include="packages\canvas-render\src\js\modules\transition.js" />
+    <Content Include="packages\canvas-render\src\js\modules\utility\general.js" />
+    <Content Include="packages\canvas-render\src\js\modules\utility\graphics.js" />
+    <Content Include="packages\canvas-render\src\js\modules\utility\number.js" />
+    <Content Include="packages\canvas-render\src\js\modules\vector.js" />
+    <Content Include="packages\dependency-injection\dist\di-js.js" />
+    <Content Include="packages\dependency-injection\dist\di-js.min.js" />
+    <Content Include="packages\dependency-injection\gulpfile.js" />
+    <Content Include="packages\dependency-injection\index.html" />
+    <Content Include="packages\dependency-injection\registerTypes.js" />
+    <Content Include="packages\dependency-injection\src\js\dependency\container.js" />
+    <Content Include="packages\dependency-injection\src\js\dependency\injector.js" />
+    <Content Include="packages\dependency-injection\src\js\dependency\registerNamespace.js" />
+    <Content Include="packages\event-js\dist\eventDispatcher.js" />
+    <Content Include="packages\event-js\dist\eventDispatcher.min.js" />
+    <Content Include="packages\event-js\gulpfile.js" />
+    <Content Include="packages\event-js\index.html" />
+    <Content Include="packages\event-js\src\js\eventdispatcher.js" />
     <Content Include="packages\general-icons\fonts\general.svg" />
     <Content Include="packages\general-icons\icons-reference.html" />
     <Content Include="packages\general-icons\styles.css" />
+    <Content Include="packages\stats.js\build\stats.min.js" />
     <Content Include="src\css\common.less" />
     <Content Include="src\css\site.colors.less" />
     <Content Include="src\css\site.css" />
@@ -102,6 +142,18 @@
     <Content Include="packages\general-icons\fonts\general.eot" />
     <Content Include="packages\general-icons\fonts\general.ttf" />
     <Content Include="packages\general-icons\fonts\general.woff" />
+    <Content Include="packages\canvas-render\.bower.json" />
+    <Content Include="packages\canvas-render\bower.json" />
+    <Content Include="packages\canvas-render\README.md" />
+    <Content Include="packages\dependency-injection\.bower.json" />
+    <Content Include="packages\dependency-injection\bower.json" />
+    <Content Include="packages\dependency-injection\README.md" />
+    <Content Include="packages\event-js\.bower.json" />
+    <Content Include="packages\event-js\bower.json" />
+    <Content Include="packages\event-js\README.md" />
+    <Content Include="packages\stats.js\.bower.json" />
+    <Content Include="packages\stats.js\bower.json" />
+    <Content Include="packages\stats.js\README.md" />
     <None Include="Properties\PublishProfiles\spaceinvaders.pubxml" />
     <Content Include="src\features\account\login.less" />
     <Content Include="src\features\dashboard\dashboard.less" />
@@ -225,10 +277,14 @@
     <Content Include="src\images\loading_24.GIF" />
     <Content Include="src\images\loading_32.GIF" />
     <Content Include="src\images\loading_80.GIF" />
+    <Content Include="src\images\ship-sprite.png" />
     <Content Include="src\js\authService.js" />
     <Content Include="src\js\connection.js" />
     <Content Include="src\js\eventmanager.js" />
-    <Content Include="src\js\game.js" />
+    <Content Include="src\js\gameCtrl.js" />
+    <Content Include="src\js\game\gameService.js" />
+    <Content Include="src\js\game\models\spaceship.js" />
+    <Content Include="src\js\game\stage.js" />
     <Content Include="src\js\hub.js" />
     <Content Include="src\js\hubs\authHub.js" />
     <Content Include="src\js\hubs\chatHub.js" />
@@ -241,6 +297,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="packages\canvas-render\projectFilesBackup\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

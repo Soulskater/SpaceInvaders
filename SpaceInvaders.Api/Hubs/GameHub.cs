@@ -8,7 +8,7 @@ namespace SpaceInvaders.Api.Hubs
     {
         public void UpdateSpaceShip(SpaceShip ship)
         {
-            Clients.AllExcept(Context.ConnectionId).updateSpaceShip(ship);
+            Clients.AllExcept(Context.ConnectionId).onUpdateSpaceShip(ship);
         }
     }
 }
