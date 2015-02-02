@@ -34,11 +34,11 @@
     "linq-js": "*",
     "stats.js": "*"
   },
-  "_release": "2a013c74ce",
+  "_release": "6afefd9e93",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "2a013c74ce53a237497f9e9d57afd350fa2c7a45"
+    "commit": "6afefd9e934e4ef721bbab6993b934b1e73ccde1"
   },
   "_source": "git://github.com/Soulskater/CanvasRender.git",
   "_target": "*",

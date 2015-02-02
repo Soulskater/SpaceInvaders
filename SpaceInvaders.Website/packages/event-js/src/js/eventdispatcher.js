@@ -67,5 +67,11 @@
             }
         }
         return true;
+    },
+    dispose: function () {
+        for (var listener in this.listeners) {
+            if (this.listeners[listener] && this.listeners[listener] instanceof Array)
+                this.listeners[listener].length = 0;
+        }
     }
 };

@@ -4,7 +4,7 @@
 var authHub = function (connection) {
 
     var hub = connection.createHubProxy("authHub");
-    var manager = new EventManager();
+    var dispatcher = new EventDispatcher();
 
     var events = {
         onUserConnected: "onUserConnected",
@@ -14,11 +14,11 @@ var authHub = function (connection) {
 
     var _subscribeHubEvents = function () {
         hub.on('onUserConnected', function (user) {
-            manager.trigger(events.onUserConnected, user);
+            dispatcher.trigger(events.onUserConnected, user);
         });
 
         hub.on('onUserDisconnected', function (user) {
-            manager.trigger(events.onUserDisconnected, user);
+            dispatcher.trigger(events.onUserDisconnected, user);
         });
     };
     _subscribeHubEvents();
@@ -38,7 +38,7 @@ var authHub = function (connection) {
             return deferred;
         },
         onDisconnected: function (handler) {
-            return manager.subscribe(events.onDisconnected, handler);
+            return dispatcher.subscribe(events.onDisconnected, handler);
         },
         getUsers: function () {
             var deferred = $.Deferred();
@@ -50,10 +50,10 @@ var authHub = function (connection) {
             return deferred;
         },
         onUserConnected: function (handler) {
-            return manager.subscribe(events.onUserConnected, handler);
+            return dispatcher.subscribe(events.onUserConnected, handler);
         },
         onUserDisconnected: function (handler) {
-            return manager.subscribe(events.onUserDisconnected, handler);
+            return dispatcher.subscribe(events.onUserDisconnected, handler);
         }
     };
 };

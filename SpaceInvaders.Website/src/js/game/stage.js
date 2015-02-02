@@ -9,7 +9,7 @@ Game.Stage = inject("Utils")
         this.stage = new RenderJs.Canvas.Stage({
             container: "viewport",
             width: 1200,
-            height: 800
+            height: 600
         });
         var backgroundlayer = this.stage.createLayer(true);
         var gameLayer = this.stage.createLayer(true);
@@ -46,6 +46,7 @@ Game.Stage = inject("Utils")
                 else {
                     ship.acceleration -= ship.friction;
                 }
+                console.log(frameData.time - frameData.lastTime);
                 ship.canvasObject.angle += (ship.angle * (frameData.time - frameData.lastTime));
                 var dx = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.sin(utils.convertToRad(ship.canvasObject.angle * -1));
                 var dy = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.cos(utils.convertToRad(ship.canvasObject.angle * -1));

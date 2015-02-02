@@ -3,21 +3,21 @@
  */
 var chatHub = function (connection) {
     var hub = connection.createHubProxy("chatHub");
-    var manager = new EventManager();
+    var dispatcher = new EventDispatcher();
     var events = {
         onReceiveMessage: "onReceiveMessage"
     };
 
     var _subscribeHubEvents = function () {
         hub.on('receiveMessage', function (message) {
-            manager.trigger(events.onReceiveMessage, message);
+            dispatcher.trigger(events.onReceiveMessage, message);
         });
     };
     _subscribeHubEvents();
 
     return{
         onReceiveMessage: function (handler) {
-            return manager.subscribe(events.onReceiveMessage, handler);
+            return dispatcher.subscribe(events.onReceiveMessage, handler);
         },
         sendMessage: function (message) {
             Game.Connection.safeInvoke().done(function () {

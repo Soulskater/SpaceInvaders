@@ -18,11 +18,11 @@
     "tests"
   ],
   "homepage": "https://github.com/Soulskater/EventDispatcher",
-  "_release": "b047b82891",
+  "_release": "591d0ac824",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "b047b828918d913d571e81c4a25376766d960605"
+    "commit": "591d0ac824494d97beeb627e620d852a85438e0b"
   },
   "_source": "git://github.com/Soulskater/EventDispatcher.git",
   "_target": "*",
