@@ -65,7 +65,6 @@
     <Content Include="ApplicationInsights.config" />
     <Content Include="packages\angular-route\angular-route.js" />
     <Content Include="packages\angular-route\angular-route.min.js" />
-    <Content Include="packages\angular-route\index.js" />
     <Content Include="packages\canvas-render\dist\canvasRender.js" />
     <Content Include="packages\canvas-render\dist\canvasRender.min.js" />
     <Content Include="packages\canvas-render\gulpfile.js" />
@@ -171,7 +170,6 @@
     <Content Include="packages\angular\angular-csp.css" />
     <Content Include="packages\angular\angular.js" />
     <Content Include="packages\angular\angular.min.js" />
-    <Content Include="packages\angular\index.js" />
     <Content Include="packages\jquery\dist\jquery.js" />
     <Content Include="packages\jquery\dist\jquery.min.js" />
     <Content Include="packages\jquery\MIT-LICENSE.txt" />
@@ -280,7 +278,6 @@
     <Content Include="src\images\ship-sprite.png" />
     <Content Include="src\js\authService.js" />
     <Content Include="src\js\connection.js" />
-    <Content Include="src\js\eventmanager.js" />
     <Content Include="src\js\gameCtrl.js" />
     <Content Include="src\js\game\gameService.js" />
     <Content Include="src\js\game\models\spaceship.js" />

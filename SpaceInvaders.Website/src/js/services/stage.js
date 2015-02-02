@@ -24,7 +24,7 @@ Game.Stage = inject("Utils")
             };
             this.players.push(player);
 
-            if(isOwnPlayer){
+            if (isOwnPlayer) {
                 player.ship.initEvents();
                 this.initOwnPlayer(player);
             }
@@ -32,11 +32,15 @@ Game.Stage = inject("Utils")
         };
 
         this.removePlayer = function (name) {
-            throw Error("Not Implemented!");
+            var player = linq(this.players).first(function (player) {
+                return player.name === name;
+            });
+            linq(this.players).remove(player);
+            gameLayer.removeObject(player.ship.canvasObject);
         };
 
-        this.initOwnPlayer = function (player){
-            var ship= player.ship;
+        this.initOwnPlayer = function (player) {
+            var ship = player.ship;
             var self = this;
             var animation = new RenderJs.Canvas.Animation(function (frameData) {
                 if ((ship.acceleration > 0 && ship.friction < 0) || (ship.acceleration < 0 && ship.friction > 0)) {
@@ -46,28 +50,27 @@ Game.Stage = inject("Utils")
                 else {
                     ship.acceleration -= ship.friction;
                 }
-                console.log(frameData.time - frameData.lastTime);
                 ship.canvasObject.angle += (ship.angle * (frameData.time - frameData.lastTime));
                 var dx = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.sin(utils.convertToRad(ship.canvasObject.angle * -1));
                 var dy = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.cos(utils.convertToRad(ship.canvasObject.angle * -1));
                 ship.canvasObject.updatePosition(dx, dy);
 
 
-                /*var pos = ship.canvasObject.pos.sub(self.stage.position);
+                var pos = ship.canvasObject.pos.sub(self.stage.position);
                 //
                 //Follow object
-                if (pos.x >= 1000 && dx > 0) {
+                if (pos.x >= self.stage.width * (2 / 3) && dx > 0) {
                     self.stage.position = self.stage.position.add(new RenderJs.Vector(dx, 0));
                 }
-                if (pos.x <= 200 && dx < 0) {
+                if (pos.x <= self.stage.width * (1 / 3) && dx < 0) {
                     self.stage.position = self.stage.position.add(new RenderJs.Vector(dx, 0));
                 }
-                if (pos.y <= 200 && dy < 0) {
+                if (pos.y <= self.stage.height * (1 / 3) && dy < 0) {
                     self.stage.position = self.stage.position.add(new RenderJs.Vector(0, dy));
                 }
-                if (pos.y >= 600 && dy > 0) {
+                if (pos.y >= self.stage.height * (2 / 3) && dy > 0) {
                     self.stage.position = self.stage.position.add(new RenderJs.Vector(0, dy));
-                }*/
+                }
             }, gameLayer);
             animation.start();
         }

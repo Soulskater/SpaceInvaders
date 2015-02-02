@@ -22,11 +22,11 @@
     "test",
     "tests"
   ],
-  "_release": "5638e15a3b",
+  "_release": "4f7b8591ac",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "5638e15a3bcf37d77df1cb1e066df9fd6e88e7b0"
+    "commit": "4f7b8591ac8581bd6b4df8c300c416f7ac82430c"
   },
   "_source": "git://github.com/Soulskater/DependencyInjection.git",
   "_target": "*",

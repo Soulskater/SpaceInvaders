@@ -60,11 +60,10 @@ Game.Models.Spaceship = inject().class(function (position, layer) {
 
         layer.on(RenderJs.Canvas.Events.keyup, function (event) {
             if (event.keyCode === 38 || event.keyCode === 40) {
-                /*if (event.keyCode === 38)
+                if (event.keyCode === 38)
                     self.friction = -0.005;
                 else
-                    self.friction = 0.005;*/
-                self.acceleration = 0;
+                    self.friction = 0.005;
                 self.canvasObject.setAnimation("idle", true);
             }
             if (event.keyCode === 37 || event.keyCode === 39) {

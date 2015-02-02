@@ -2,13 +2,13 @@
  * Created by gmeszaros on 1/14/2015.
  */
 angular.module("SpaceInvaders")
-    .controller("GameCtrl", ['$scope', 'authService', 'gameService', function ($scope, authService, gameService) {
+    .controller("GameCtrl", ['$scope', function ($scope) {
         $scope.stage = new Game.Stage();
 
         var _init = function () {
-            authService.getUsers().then(function (users) {
+            Game.Service.Auth.getUsers().done(function (users) {
                 linq(users).forEach(function (user) {
-                    var isOwnPlayer = user.UserName === authService.authData.user.UserName
+                    var isOwnPlayer = user.UserName === Game.Service.Auth.user.userName
                     var player = $scope.stage.addPlayer(user.UserName, isOwnPlayer);
                     if (isOwnPlayer) {
                         player.ship.canvasObject.on(RenderJs.Canvas.Events.objectChanged, function (canvasObject) {
@@ -20,7 +20,7 @@ angular.module("SpaceInvaders")
         };
         _init();
 
-        gameService.onUpdateSpaceShip(function (updatedPlayer) {
+        Game.Service.Update.onUpdateSpaceShip(function (updatedPlayer) {
             $scope.$apply(function () {
                 var player = linq($scope.stage.players).first(function (player) {
                     return player.name === updatedPlayer.name;
@@ -30,13 +30,13 @@ angular.module("SpaceInvaders")
             })
         });
 
-        authService.onUserConnected(function (user) {
+        Game.Service.Auth.onUserConnected(function (user) {
             $scope.$apply(function () {
                 $scope.stage.addPlayer(user.UserName, false);
             })
         });
 
-        authService.onUserDisconnected(function (user) {
+        Game.Service.Auth.onUserDisconnected(function (user) {
             $scope.$apply(function () {
                 $scope.stage.removePlayer(user.UserName);
             })

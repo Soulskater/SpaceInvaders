@@ -2,12 +2,12 @@
  * Created by MCG on 2015.01.17..
  */
 angular.module("SpaceInvaders")
-    .controller("DashboardCtrl", ['$scope', 'authService', function ($scope, authService) {
-        if (!authService.authData.isAuthenticated) {
-            authService.disconnectUser();
+    .controller("DashboardCtrl", ['$scope', function ($scope) {
+        if (!Game.Service.Auth.user.isAuthenticated) {
+            Game.Service.Auth.disconnectUser();
         }
 
-        authService.onUserConnected(function (user) {
+        Game.Service.Auth.onUserConnected(function (user) {
             console.log(user);
         });
     }]);
