@@ -18,10 +18,7 @@ Game.Stage = inject("Utils")
         };
 
         this.addPlayer = function (name, isOwnPlayer) {
-            var player = {
-                name: name,
-                ship: new Game.Models.Spaceship(getSpawnPosition(), gameLayer)
-            };
+            var player = new Game.Models.Player(name, getSpawnPosition(), gameLayer);
             this.players.push(player);
 
             if (isOwnPlayer) {
@@ -36,7 +33,7 @@ Game.Stage = inject("Utils")
                 return player.name === name;
             });
             linq(this.players).remove(player);
-            gameLayer.removeObject(player.ship.canvasObject);
+            gameLayer.removeObject(player.ship);
         };
 
         this.initOwnPlayer = function (player) {
@@ -50,10 +47,10 @@ Game.Stage = inject("Utils")
                 else {
                     ship.acceleration -= ship.friction;
                 }
-                ship.canvasObject.angle += (ship.angle * (frameData.time - frameData.lastTime));
-                var dx = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.sin(utils.convertToRad(ship.canvasObject.angle * -1));
-                var dy = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.cos(utils.convertToRad(ship.canvasObject.angle * -1));
-                ship.canvasObject.updatePosition(dx, dy);
+                ship.angle += (ship.angle * (frameData.time - frameData.lastTime));
+                var dx = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.sin(utils.convertToRad(ship.angle * -1));
+                var dy = (ship.acceleration * (frameData.time - frameData.lastTime)) * Math.cos(utils.convertToRad(ship.angle * -1));
+                ship.updatePosition(dx, dy);
 
 
                 var pos = ship.canvasObject.pos.sub(self.stage.position);

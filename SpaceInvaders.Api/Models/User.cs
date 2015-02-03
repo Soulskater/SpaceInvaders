@@ -8,6 +8,7 @@ namespace SpaceInvaders.Api.Models
 {
     public class User
     {
+        [JsonProperty("userName")]
         public string UserName { get; set; }
 
         [JsonIgnore]

@@ -280,10 +280,10 @@
     <Content Include="src\js\connection.js" />
     <Content Include="src\js\gameCtrl.js" />
     <Content Include="src\js\game\gameService.js" />
-    <Content Include="src\js\game\models\spaceship.js" />
+    <Content Include="src\js\game\models\player.js" />
     <Content Include="src\js\game\stage.js" />
     <Content Include="src\js\hub.js" />
-    <Content Include="src\js\hubs\authHub.js" />
+    <Content Include="src\js\hubs\userHub.js" />
     <Content Include="src\js\hubs\chatHub.js" />
     <Content Include="src\js\hubs\diagHub.js" />
     <Content Include="src\js\hubs\gameHub.js" />

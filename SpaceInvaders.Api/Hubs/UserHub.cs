@@ -9,8 +9,8 @@ using Microsoft.AspNet.SignalR.Hubs;
 
 namespace SpaceInvaders.Api.Hubs
 {
-    [HubName("authHub")]
-    public class AuthHub : Hub
+    [HubName("userHub")]
+    public class UserHub : Hub
     {
         public User ConnectUser(User user)
         {

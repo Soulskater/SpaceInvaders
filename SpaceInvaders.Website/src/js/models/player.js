@@ -3,8 +3,10 @@
  */
 registerNamespace("Game.Models");
 
-Game.Models.Spaceship = inject().class(function (position, layer) {
-    this.canvasObject = new RenderJs.Canvas.Shapes.Sprite({
+Game.Models.Player = inject().class(function (name, position, layer) {
+
+    this.name = name;
+    this.ship = new RenderJs.Canvas.Shapes.Sprite({
         url: "src/images/ship-sprite.png",
         x: position.x,
         y: position.y,
@@ -28,8 +30,8 @@ Game.Models.Spaceship = inject().class(function (position, layer) {
     this.friction = 0;
     this.angle = 0;
 
-    layer.addObject(this.canvasObject);
-    this.canvasObject.start();
+    layer.addObject(this.ship);
+    this.ship.start();
 
     this.initAmination= function () {
 
@@ -42,12 +44,12 @@ Game.Models.Spaceship = inject().class(function (position, layer) {
                 case 38:
                     self.friction = 0;
                     self.acceleration = -0.5;
-                    self.canvasObject.setAnimation("move", true);
+                    self.ship.setAnimation("move", true);
                     break;
                 case 40:
                     self.friction = 0;
                     self.acceleration = 0.5;
-                    self.canvasObject.setAnimation("move", true);
+                    self.ship.setAnimation("move", true);
                     break;
                 case 37:
                     self.angle = -0.25;
@@ -64,7 +66,7 @@ Game.Models.Spaceship = inject().class(function (position, layer) {
                     self.friction = -0.005;
                 else
                     self.friction = 0.005;
-                self.canvasObject.setAnimation("idle", true);
+                self.ship.setAnimation("idle", true);
             }
             if (event.keyCode === 37 || event.keyCode === 39) {
                 self.angle = 0;

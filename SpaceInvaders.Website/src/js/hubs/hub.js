@@ -8,6 +8,6 @@ Game.Hubs = (function (connection) {
         //diagHub: diagHub(_connection),
         gameHub: gameHub(_connection),
         chatHub: chatHub(_connection),
-        authHub: authHub(_connection)
+        userHub: userHub(_connection)
     }
 }(Game.Connection));

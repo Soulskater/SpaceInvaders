@@ -1,9 +1,9 @@
 /**
  * Created by MCG on 2015.01.17..
  */
-var authHub = function (connection) {
+var userHub = function (connection) {
 
-    var hub = connection.createHubProxy("authHub");
+    var hub = connection.createHubProxy("userHub");
     var dispatcher = new EventDispatcher();
 
     var events = {
